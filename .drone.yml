@@ -1,0 +1,14 @@
+kind: pipeline
+type: docker
+name: test-go
+
+steps:
+  - name: test
+    image: golang
+    commands:
+      - go test ./...
+    when:
+      branch:
+        - main
+      event:
+        - push
